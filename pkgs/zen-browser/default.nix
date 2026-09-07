@@ -4,7 +4,7 @@ let
   inherit (pkgs.stdenv.hostPlatform) system isLinux isDarwin;
 
   pname = "zen";
-  version = "1.21.16b";
+  version = "1.22b";
 
   meta = {
     platforms = [
@@ -20,15 +20,15 @@ let
     {
       x86_64-linux = {
         url = url + "zen-x86_64.AppImage";
-        hash = "sha256-ZA6leO/hu4ff+FxxGBRcZBSiWURu8P/1qfVp1nlzl/0=";
+        hash = "sha256-K6CabCTOizPOsTpvhPpmDKZcj9KaFky5vPNLYDBz76g=";
       };
       aarch64-linux = {
         url = url + "zen-aarch64.AppImage";
-        hash = "sha256-XpFy/F3MHTUnuK1WjB3ohHCodHuLAbw4RDdFmDeqcvw=";
+        hash = "sha256-8d2lw5IVo9QyY604A96ogZXH54PLmkFcC/GGKBRJmN4=";
       };
       aarch64-darwin = {
         url = url + "zen.macos-universal.dmg";
-        hash = "sha256-NWBosq1JfgHRhXebdHMH+6yzvDZ6dRDRaYaWCPuh048=";
+        hash = "sha256-Od0PxAUj/+R0nD6XfhD9bJAF1tEShUIYmRFNrbu/3Zs=";
       };
     }
     .${system} or (throw "Zen is unsupported on ${system}");
@@ -43,6 +43,8 @@ if isLinux then
       src
       meta
       ;
+
+    extraPkgs = pkgs: with pkgs; [ ffmpeg_8 ];
 
     extraInstallCommands =
       let
