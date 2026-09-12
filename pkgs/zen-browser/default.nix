@@ -4,7 +4,7 @@ let
   inherit (pkgs.stdenv.hostPlatform) system isLinux isDarwin;
 
   pname = "zen";
-  version = "1.22b";
+  version = "1.22.1b";
 
   meta = {
     platforms = [
@@ -20,15 +20,15 @@ let
     {
       x86_64-linux = {
         url = url + "zen-x86_64.AppImage";
-        hash = "sha256-K6CabCTOizPOsTpvhPpmDKZcj9KaFky5vPNLYDBz76g=";
+        hash = "sha256-tH/y/cAClE9zcq145V35D1/KQv6rTleM4jblh/w7418=";
       };
       aarch64-linux = {
         url = url + "zen-aarch64.AppImage";
-        hash = "sha256-8d2lw5IVo9QyY604A96ogZXH54PLmkFcC/GGKBRJmN4=";
+        hash = "sha256-AThGPngTkQ2r8rgPvg3l4Gsppc3oRTFBDDViqw2IcEk=";
       };
       aarch64-darwin = {
         url = url + "zen.macos-universal.dmg";
-        hash = "sha256-Od0PxAUj/+R0nD6XfhD9bJAF1tEShUIYmRFNrbu/3Zs=";
+        hash = "sha256-OQSmejhRsaYZ4tP6enCDWh1+Q2etMJMcz5tNIykq+ZA=";
       };
     }
     .${system} or (throw "Zen is unsupported on ${system}");
